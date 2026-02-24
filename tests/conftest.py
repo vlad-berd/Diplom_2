@@ -1,24 +1,13 @@
 import pytest
-import allure
 
 from data import DataForUser, DataForOrder
 from generators import generate_user_body
-from methods.user_methods import UserMethods
+from methods.user_methods import UserMethods, delete_test_user
 from methods.order_methods import OrderMethods
 
 
-def delete_user(user):
-    with allure.step('Получение token пользователя для удаления тестового пользователя'):
-        response_login = UserMethods.login_user(user.login_user_body)
-
-        if response_login.status_code == 200:
-            access_token = response_login.json()['accessToken']
-
-            with allure.step('Удаление тестового курьера'):
-                UserMethods.delete_user(access_token=access_token)
-
 @pytest.fixture()
-def user_body(delete_test_user=delete_user):
+def user_body(delete_test_user=delete_test_user):
     body = generate_user_body()
     user = DataForUser(email=body['email'], password=body['password'], name=body['name'])
 
