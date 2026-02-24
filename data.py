@@ -24,8 +24,6 @@ class DataForUser:
         }
 
 class DataForOrder:
-    _ingredients = []
-
     def __init__(self, ingredient):
         self._ingredients = ingredient
     
