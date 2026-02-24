@@ -20,7 +20,7 @@ def create_user(user_body):
     user = user_body
     UserMethods.registration_user(user.create_user_body)
 
-    yield user
+    return user
 
 @pytest.fixture()
 def access_token_user(create_user):
@@ -28,7 +28,7 @@ def access_token_user(create_user):
     response = UserMethods.login_user(user.login_user_body)
     access_token = response.json()['accessToken']
 
-    yield access_token
+    return access_token
 
 @pytest.fixture()
 def order_body():
@@ -38,4 +38,4 @@ def order_body():
 
     order = DataForOrder(ingredients)
 
-    yield order
+    return order
