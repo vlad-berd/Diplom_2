@@ -1,6 +1,6 @@
 ## Тестирование API сервиса "Stellar Burgers"
 
-#### Стэк: Requests, PyTest, Allure, Allure-report, Faker.
+#### Стек: Requests, PyTest, Allure, Allure-report, Faker.
 Также было протестировано API вручную в Postman.
 
 ## Проведённые тесты:
